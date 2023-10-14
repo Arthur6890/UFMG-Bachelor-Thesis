@@ -1,1 +1,1 @@
-export {};
+declare const mongoose: any;

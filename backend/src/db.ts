@@ -1,10 +1,12 @@
-// src/db.ts
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/MonografiaII.user')
-  .then(() => {
-    console.log('Conexão com o MongoDB estabelecida com sucesso.');
-  })
-  .catch((error) => {
-    console.error('Erro de conexão com o MongoDB:', error);
-  });
+mongoose.connect('mongodb://127.0.0.1/Monografia', {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+})
+	.then(() => {
+		console.log('Connected to the Monografia database');
+	})
+	.catch((error) => {
+		console.error('Error connecting to the MonografiaII database:', error);
+	});

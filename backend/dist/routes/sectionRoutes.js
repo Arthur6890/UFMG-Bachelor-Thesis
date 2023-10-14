@@ -7,12 +7,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const Section_1 = __importDefault(require("../models/Section"));
 const router = (0, express_1.Router)();
-router.get('/section/:serialNumber', async (req, res) => {
+router.get('/section/:name', async (req, res) => {
     try {
-        const { serialNumber } = req.params;
-        const section = await Section_1.default.findOne({ serialNumber });
+        const { name } = req.params;
+        const section = await Section_1.default.findOne({ name });
         if (!section) {
-            return res.status(404).json({ message: 'Seção não encontrada' });
+            return res.status(404).json({ message: 'Seção não encontrada', number: name });
         }
         res.json(section);
     }
@@ -20,6 +20,9 @@ router.get('/section/:serialNumber', async (req, res) => {
         console.error(error);
         res.status(500).json({ message: 'Erro ao buscar a seção' });
     }
+});
+router.get('/teste', (req, res) => {
+    res.send('Hello World!');
 });
 exports.default = router;
 //# sourceMappingURL=sectionRoutes.js.map
