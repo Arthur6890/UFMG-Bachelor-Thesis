@@ -31,9 +31,16 @@ router.get('/user/:serialNumber', (req, res) => __awaiter(void 0, void 0, void 0
 }));
 router.post('/user/:serialNumber/:recharge', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const data = req.params;
-        const doc = yield user_model_1.User.findOneAndUpdate({ serialNumber: data.serialNumber, balance: data.recharge, new: true });
-        return res.status(200).json({ data: doc });
+        const { serialNumber, recharge } = req.params;
+        const user = yield user_model_1.User.findOne({ serialNumber: serialNumber });
+        if (!user) {
+            res.status(404).json({ message: "Usuário não encontrado" });
+        }
+        else {
+            user.balance = parseInt(recharge);
+            yield user.save();
+            return res.status(200).json({ data: user });
+        }
     }
     catch (error) {
         res.status(500).send('Erro ao realizar operação: ' + error);

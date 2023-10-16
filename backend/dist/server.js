@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const user_routes_1 = __importDefault(require("./routes/user.routes"));
 require("./db");
-// const express = require('express')
 const app = (0, express_1.default)();
 const PORT = parseInt(process.env.PORT || '3000');
 app.use(express_1.default.json());

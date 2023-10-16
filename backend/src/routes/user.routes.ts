@@ -21,10 +21,17 @@ router.get('/user/:serialNumber', async (req: Request, res: Response) => {
 
 router.post('/user/:serialNumber/:recharge', async (req: Request, res: Response) => {
 	try {
-		const data = req.params
-		const doc = await User.findOneAndUpdate({ serialNumber: data.serialNumber, balance: data.recharge, new: true })
+		const { serialNumber, recharge } = req.params
+		const user = await User.findOne({ serialNumber: serialNumber });
 
-		return res.status(200).json({ data: doc });
+		if (!user) {
+			res.status(404).json({ message: "Usuário não encontrado" });
+		}
+		else {
+			user.balance = parseInt(recharge);
+			await user.save()
+			return res.status(200).json({ data: user });
+		}
 
 	} catch (error) {
 		res.status(500).send('Erro ao realizar operação: ' + error);
