@@ -4,7 +4,7 @@ import Greetings from "@/components/greetings";
 import Spacer from "@/components/spacer";
 import Image from "next/image";
 import Foto from "public/images/desktop.jpg"
-import { Inter } from '@next/font/google'
+import { Inter } from 'next/font/google'
 import { userMocked } from "@/mock/user";
 import { ButtonComponent } from "@/components/button";
 import styles from "@/styles/dados.module.scss"
