@@ -1,3 +1,5 @@
+'use client'
+
 import { createContext, useContext, ReactNode, useState, useEffect } from 'react';
 
 type User = {
@@ -9,7 +11,7 @@ type User = {
 };
 
 type UserContextType = {
-	user: User | null;
+	user: User | null | undefined;
 	fetchUser: (serialNumber: string) => void;
 };
 
@@ -20,7 +22,7 @@ type UserProviderProps = {
 };
 
 export function UserProvider({ children }: UserProviderProps) {
-	const [user, setUser] = useState<User | null>(null);
+	const [user, setUser] = useState<User | null>();
 
 	const fetchUser = async (serialNumber: string) => {
 		try {
@@ -50,12 +52,4 @@ export function useUser() {
 		throw new Error('useUser deve ser usado dentro de um UserProvider');
 	}
 	return context.user;
-}
-
-export function useFetchUser() {
-	const context = useContext(UserContext);
-	if (context === undefined) {
-		throw new Error('useFetchUser deve ser usado dentro de um UserProvider');
-	}
-	return context.fetchUser;
 }

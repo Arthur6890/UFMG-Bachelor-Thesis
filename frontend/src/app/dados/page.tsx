@@ -5,10 +5,10 @@ import Spacer from "@/components/spacer";
 import Image from "next/image";
 import Foto from "public/images/desktop.jpg"
 import { Inter } from '@next/font/google'
-import { userMocked } from "mock/user";
+import { userMocked } from "@/mock/user";
 import { ButtonComponent } from "@/components/button";
 import styles from "@/styles/dados.module.scss"
-import { useUser } from "../api/UserContext";
+import { useUser } from "@/context/UserContext";
 
 const inter = Inter({ subsets: ['latin'] })
 
