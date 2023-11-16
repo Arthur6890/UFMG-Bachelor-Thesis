@@ -8,9 +8,9 @@ import Foto from "public/images/desktop.jpg"
 import { Inter } from 'next/font/google'
 import { userMocked } from "@/mock/user";
 import { ButtonComponent } from "@/components/button";
-import styles from "@/styles/dados.module.scss"
 import { User } from "@/interface/Iuser";
 import useUserData from "@/hooks/useUserData";
+import styles from "@/styles/dados.module.scss"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -46,7 +46,10 @@ const Dados: NextPage = () => {
 							{`${capitalizeString(userData.data.name)}!`}
 						</h2>
 					</div>
-					<Image src={Foto} alt={`foto de perfil de ${capitalizeString(userMocked.name)}`} className={styles.profileFoto} />
+					<div className={styles.profileFotoDiv}>
+						<img src={userData.data.profilePhoto} alt={`foto de perfil de ${capitalizeString(userData.data.name)}`} className={styles.profileFoto} />
+
+					</div>
 				</div>
 				<div className={styles.balance}>
 					<Spacer height="140px" />

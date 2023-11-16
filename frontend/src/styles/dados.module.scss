@@ -26,9 +26,16 @@
 	padding: 33px 40px 0 32px;
 }
 
-.profileFoto {
+.profileFotoDiv {
 	width: 112px;
 	height: 112px;
+}
+
+.profileFoto {
+	max-width: 112px;
+	max-height: 112px;
+	width: auto;
+	height: auto;
 	border-radius: 50%;
 }
 
