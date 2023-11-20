@@ -3,31 +3,16 @@
 import { NextPage } from "next";
 import Greetings from "@/components/greetings";
 import Spacer from "@/components/spacer";
-import Image from "next/image";
-import Foto from "public/images/desktop.jpg"
 import { Inter } from 'next/font/google'
-import { userMocked } from "@/mock/user";
 import { ButtonComponent } from "@/components/button";
-import { User } from "@/interface/Iuser";
 import useUserData from "@/hooks/useUserData";
 import styles from "@/styles/dados.module.scss"
+import { capitalizeString } from "../utils/capitalizeString";
+import { formattedBalanceValue } from "../utils/formatBalanceValue";
 
 const inter = Inter({ subsets: ['latin'] })
 
 const Dados: NextPage = () => {
-	function capitalizeString(str: string) {
-		return str.charAt(0).toUpperCase() + str.slice(1);
-	}
-
-	function formattedBalanceValue(number: number) {
-		const formattedNumber = number.toLocaleString('pt-BR', {
-			style: 'currency',
-			currency: 'BRL',
-			minimumFractionDigits: 2,
-		});
-
-		return formattedNumber;
-	}
 
 	const userData = useUserData();
 	if (!userData) {

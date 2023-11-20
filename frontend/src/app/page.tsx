@@ -7,10 +7,10 @@ import ReacregueAqui from "public/images/recarregueAqui.png"
 import IconeTCC from "public/images/icon.png"
 import { ButtonComponent } from '@/components/button'
 import Spacer from '@/components/spacer'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import styles from '@/styles/home.module.scss'
 import { User } from '@/interface/Iuser'
+import styles from '@/styles/home.module.scss'
 
 const inter = Inter({ subsets: ['latin'] })
 
