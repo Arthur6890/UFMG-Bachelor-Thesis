@@ -6,7 +6,6 @@ import { Inter } from 'next/font/google'
 import Spacer from "@/components/spacer";
 import ThinkingEmoji from "public/images/pensando.gif"
 import { useState } from "react";
-import { formattedBalanceValue } from "../utils/formatBalanceValue";
 import styles from "@/styles/recarga.module.scss"
 import { useRouter } from "next/navigation";
 import useUserData from "@/hooks/useUserData";

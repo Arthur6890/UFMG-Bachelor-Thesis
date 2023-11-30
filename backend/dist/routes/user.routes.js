@@ -37,7 +37,7 @@ router.post('/user/:serialNumber/:recharge', (req, res) => __awaiter(void 0, voi
             res.status(404).json({ message: "Usuário não encontrado" });
         }
         else {
-            user.balance = parseFloat(recharge);
+            user.balance += parseFloat(recharge);
             yield user.save();
             return res.status(200).json({ data: user });
         }
